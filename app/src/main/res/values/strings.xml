@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Submission_3_MADE_BN</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_movie">Movies</string>
+    <string name="title_tv_show">Tv Show</string>
+    <string name="content_tab_movies">This Movies</string>
+    <string name="content_tab_tv_show">This Tv Show</string>
+    <string name="change_language_settings">Change Language Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movies_name">Movies Name</string>
+    <string name="description">Description</string>
+    <string name="text_rate">Rate :</string>
+    <string name="nilai_rate">Nilai</string>
+</resources>
