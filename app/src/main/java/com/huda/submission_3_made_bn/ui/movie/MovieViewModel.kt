@@ -15,14 +15,13 @@ class MovieViewModel : ViewModel() {
     companion object {
         private const val API_KEY = "8152b136a5dad36d2ca7844f884577ba"
     }
-
     val listDataFilm = MutableLiveData<ArrayList<RootData>>()
 
-    internal fun setFilm() {
+    internal fun setFilm(language : String) {
         val client = AsyncHttpClient()
         val listItems = ArrayList<RootData>()
         val url =
-            "https://api.themoviedb.org/3/movie/popular?api_key=$API_KEY&language=en-US&page=1"
+            "https://api.themoviedb.org/3/movie/popular?api_key=$API_KEY&language=$language&page=1"
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
@@ -40,6 +39,7 @@ class MovieViewModel : ViewModel() {
                         filmItems.name = film.getString("original_title")
                         filmItems.description = film.getString("overview")
                         filmItems.photo = film.getString("poster_path")
+                        filmItems.rate = film.getDouble("vote_average")
                         listItems.add(filmItems)
                     }
                     listDataFilm.postValue(listItems)

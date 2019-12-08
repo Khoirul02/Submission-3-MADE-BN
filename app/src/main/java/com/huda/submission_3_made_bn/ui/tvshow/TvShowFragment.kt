@@ -32,6 +32,8 @@ class TvShowFragment : Fragment() {
         adapter = ListTvShowAdapter()
         adapter.notifyDataSetChanged()
 
+        val language = resources.getString(R.string.language_string)
+
         rv_movies.layoutManager = LinearLayoutManager(activity)
         rv_movies.adapter = adapter
 
@@ -39,7 +41,7 @@ class TvShowFragment : Fragment() {
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(TvShowViewModel::class.java)
-        mainViewModel.setFilm()
+        mainViewModel.setFilm(language)
         showLoading(true)
         mainViewModel.getFilm().observe(this, Observer { filmItems ->
             if (filmItems != null) {

@@ -32,6 +32,8 @@ class MovieFragment : Fragment() {
         adapter = ListMovieAdapter()
         adapter.notifyDataSetChanged()
 
+        val language = resources.getString(R.string.language_string)
+
         rv_movies.layoutManager = LinearLayoutManager(activity)
         rv_movies.adapter = adapter
 
@@ -39,7 +41,7 @@ class MovieFragment : Fragment() {
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(MovieViewModel::class.java)
-        mainViewModel.setFilm()
+        mainViewModel.setFilm(language)
         showLoading(true)
         mainViewModel.getFilm().observe(this, Observer { filmItems ->
             if (filmItems != null) {
